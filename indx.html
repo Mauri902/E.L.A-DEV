@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>E.L.A. DEV | Soluções em Tecnologia</title>
+
+    <meta name="description"
+        content="Especialistas em desenvolvimento de sites, infraestrutura, manutenção e suporte técnico.">
+
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #060b14;
+            --bg2: #0d1525;
+            --primary: #00bfff;
+            --text: #ffffff;
+            --gray: #a1a1aa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* HEADER */
+
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+        }
+
+        header .container {
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo img {
+            width: 70px;
+            border-radius: 65%;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .8)),
+                url('./img/bg-tech.jpg') center/cover;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            padding-top: 100px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .tag-tech,
+        .section-tag {
+            color: var(--primary);
+            letter-spacing: 2px;
+            font-size: .9rem;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin: 25px 0;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn,
+        .btn-outline {
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: .3s;
+            display: inline-block;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        /* TITULOS */
+
+        .titulo-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .titulo-section h2 {
+            font-size: 2.5rem;
+            margin: 15px 0;
+        }
+
+        .titulo-section p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: auto;
+        }
+
+
+
+        /* =========================
+   SERVIÇOS
+========================= */
+
+        .servicos-grid {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            width: 100%;
+            max-width: 1100px;
+            margin: 60px auto;
+        }
+
+        .servico-card {
+            background: var(--bg2);
+            padding: 25px;
+            border-radius: 20px;
+            transition: .4s;
+            border: 1px solid rgba(1, 136, 125, 0.25);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            width: 250px;
+            min-height: 320px;
+        }
+
+        .servico-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 191, 255, .20);
+        }
+
+        .servico-card img {
+            width: 65px;
+            height: 65px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .servico-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .servico-card p {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: .95rem;
+        }
+
+        .servico-card .btn {
+            margin-top: auto;
+        }
+
+        /* PORTFÓLIO */
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            grid-column: span 4;
+            background: var(--bg2);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: .3s;
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .portfolio-info {
+            padding: 25px;
+        }
+
+        .portfolio-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .portfolio-info p {
+            color: var(--gray);
+        }
+
+        /* DESTAQUE */
+
+        .portfolio-card.destaque,
+        .portfolio-card.destaque-full {
+            grid-column: span 12;
+            width: 100%;
+        }
+
+        .portfolio-card.destaque img,
+        .portfolio-card.destaque-full img {
+            width: 100%;
+            height: 500px;
+            object-fit: contain;
+            background: var(--bg2);
+        }
+
+        /* ORÇAMENTO */
+
+        .orcamento-box {
+            background: linear-gradient(135deg, #0f172a, #111827);
+            padding: 60px;
+            border-radius: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .orcamento-box h2 {
+            font-size: 2.5rem;
+            margin: 20px 0;
+        }
+
+        .orcamento-box p {
+            color: var(--gray);
+        }
+
+        .form-orcamento {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-orcamento input,
+        .form-orcamento textarea {
+            background: #0b1220;
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+            color: white;
+            outline: none;
+        }
+
+        .form-orcamento textarea {
+            min-height: 160px;
+            resize: none;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, .05);
+            padding: 40px 0;
+            background: #050b13;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+        }
+
+        /* LOGO FOOTER */
+
+        .footer-logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            padding: 12px;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(255, 255, 255, .08);
+            box-shadow: 0 0 25px rgba(0, 191, 255, .15);
+            transition: .3s;
+        }
+
+        .footer-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 35px rgba(0, 191, 255, .35);
+        }
+
+        .footer-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .footer p {
+            color: var(--gray);
+            font-size: .95rem;
+        }
+
+        /* LOGO FIXA REDONDA */
+
+        .logo-fixa {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 75px;
+            height: 75px;
+            background: rgba(8, 16, 29, 0.95);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            box-shadow: 0 0 25px rgba(0, 191, 255, 0.35);
+            transition: .3s;
+        }
+
+        .logo-fixa:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 0 35px rgba(0, 191, 255, 0.6);
+        }
+
+        .logo-fixa img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        /* RESPONSIVO */
+
+        @media(max-width: 900px) {
+
+            .hero-content,
+            .orcamento-box {
+                grid-template-columns: 1fr;
+                display: grid;
+            }
+
+            .portfolio-card,
+            .portfolio-card.destaque {
+                grid-column: span 12;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media(max-width:700px) {
+
+            .logo-fixa {
+                width: 65px;
+                height: 65px;
+                right: 15px;
+                bottom: 15px;
+            }
+
+            .logo-fixa img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .footer-logo {
+                width: 75px;
+                height: 75px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image img {
+                max-width: 350px;
+            }
+
+            .footer {
+                justify-content: center;
+                text-align: center;
+
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="container">
+
+            <div class="logo">
+                <img src="./img/logo.png" alt="E.L.A DEV">
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Home</a></li>
+                    <li><a href="#ajuda">Soluções</a></li>
+                    <li><a href="#portfolio">Portfólio</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#orcamento">Orçamento</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- HERO -->
+    <main class="hero" id="inicio">
+
+        <div class="container hero-content">
+
+            <div class="hero-text">
+
+                <span class="tag-tech">
+                    SOLUÇÕES EM TECNOLOGIA & PERFORMANCE
+                </span>
+
+                <h1>
+                    Transformamos tecnologia em
+                    <span>performance real</span>
+                </h1>
+
+                <p>
+                    Especialistas em desenvolvimento de sites,
+                    infraestrutura, suporte técnico,
+                    upgrades e tecnologia de alta performance.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#orcamento" class="btn">
+                        Solicitar Orçamento
+                    </a>
+
+                    <a href="#portfolio" class="btn-outline">
+                        Nosso Portfólio
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- PORTFÓLIO -->
+    <section id="portfolio">
+
+        <div class="container">
+
+            <div class="titulo-section">
+
+                <span class="section-tag">
+                    NOSSO PORTFÓLIO
+                </span>
+
+                <h2>Projetos entregues</h2>
+
+            </div>
+
+            <!-- PROJETO EM DESTAQUE -->
+            <div class="portfolio-destaque">
+
+                <div class="portfolio-card destaque-full">
+
+                    <img src="./img/kendra.png" alt="Kendra Consórcios">
+
+                    <div class="portfolio-info destaque-info">
+
+                        <span class="badge">
+                            PROJETO EM DESTAQUE
+                        </span>
+
+                        <h3>Kendra Consórcios</h3>
+
+                        <p>
+                            Desenvolvimento completo de site profissional
+                            focado em captação de clientes, design moderno,
+                            velocidade, responsividade e fortalecimento da marca.
+                        </p>
+
+                        <a href="#" class="btn">
+                            Ver Projeto
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- OUTROS PROJETOS -->
+            <div class="portfolio-grid">
+
+                <div class="portfolio-card">
+
+                    <img src="./img/onepage.png" alt="One Page">
+
+                    <div class="portfolio-info">
+
+                        <h3>One Page</h3>
+
+                        <p>
+                            Landing page moderna, rápida e responsiva.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="portfolio-card">
+
+                    <img src="./img/setup.png" alt="Setup Gamer">
+
+                    <div class="portfolio-info">
+
+                        <h3>Setup Gamer RGB</h3>
+
+                        <p>
+                            Montagem personalizada com alto desempenho.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="portfolio-card">
+
+                    <img src="./img/infraestrutura.png" alt="Infraestrutura">
+
+                    <div class="portfolio-info">
+
+                        <h3>Infraestrutura Empresarial</h3>
+
+                        <p>
+                            Organização de rede e suporte corporativo.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SERVIÇOS -->
+    <div class="servicos-grid">
+
+        <div class="servico-card">
+
+            <img src="./img/web.png" alt="Desenvolvimento de Sites">
+
+            <h3>Desenvolvimento de Sites</h3>
+
+            <p>
+                Sites modernos, rápidos e personalizados.
+            </p>
+
+            <a href="#orcamento" class="btn">
+                Saiba Mais
+            </a>
+
+        </div>
+
+        <div class="servico-card">
+
+            <img src="./img/suporte.png" alt="Manutenção">
+
+            <h3>Manutenção</h3>
+
+            <p>
+                Diagnóstico, limpeza técnica e reparos.
+            </p>
+
+            <a href="#orcamento" class="btn">
+                Saiba Mais
+            </a>
+
+        </div>
+
+        <div class="servico-card">
+
+            <img src="./img/pc.png" alt="PC Gamer">
+
+            <h3>Montagem de PC Gamer</h3>
+
+            <p>
+                Computadores personalizados para performance.
+            </p>
+
+            <a href="#orcamento" class="btn">
+                Saiba Mais
+            </a>
+
+        </div>
+
+        <div class="servico-card">
+
+            <img src="./img/infra.png" alt="Infraestrutura">
+
+            <h3>Infraestrutura</h3>
+
+            <p>
+                Soluções completas em redes empresariais.
+            </p>
+
+            <a href="#orcamento" class="btn">
+                Ver Mais
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- ORÇAMENTO -->
+    <section id="orcamento">
+
+        <div class="container">
+
+            <div class="orcamento-box">
+
+                <div class="orcamento-texto">
+
+                    <span class="section-tag">
+                        SOLICITAR ORÇAMENTO
+                    </span>
+
+                    <h2>
+                        Fale com nossa equipe
+                    </h2>
+
+                    <p>
+                        Receba uma análise completa e personalizada.
+                    </p>
+
+                </div>
+
+                <form class="form-orcamento">
+
+                    <input type="text" placeholder="Seu Nome">
+
+                    <input type="email" placeholder="Seu E-mail">
+
+                    <input type="tel" placeholder="Seu Telefone">
+
+                    <textarea placeholder="Descreva sua necessidade"></textarea>
+
+                    <button type="submit" class="btn">
+                        Solicitar Agora
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <!-- SUBSTITUA SEU FOOTER POR ESSE -->
+
+    <footer>
+
+        <div class="container footer">
+
+            <!-- LOGO FOOTER -->
+            <div class="footer-logo">
+                <img src="./img/logo.png" alt="E.L.A DEV">
+            </div>
+
+            <p>
+                © 2026 E.L.A DEV — Tecnologia sem limites
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- LOGO FIXA REDONDA -->
+    <a href="#inicio" class="logo-fixa">
+        <img src="./img/logo.png" alt="Voltar ao topo">
+    </a>
+    </div>
+
+</html>
